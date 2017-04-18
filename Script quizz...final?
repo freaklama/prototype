@@ -1,0 +1,298 @@
+#coding: utf-8
+
+
+import csv
+import random
+import requests
+from bs4 import BeautifulSoup
+
+q = "megaquestions.csv"
+r = "megareponses.csv"
+f1 = open(q)
+f2 = open(r)
+r1 = csv.reader(f1)
+r2 = csv.reader(f2)
+questions = []
+reponses = []
+bonnerep = []
+numeroquestion = 1
+points = 0
+
+
+def quizz():
+    print("Bienvenue au quiz!")
+    print("Pour chaque question, veuillez entrer la réponse.")
+    print("Pour arrêter le quiz, tapez 'stop' ou repondez a 20 questions.")
+    associerQuestions()
+    associerReponses()
+    quizzDebut()
+    
+def associerReponses():
+    for reponse in r2:
+        reponses.append(reponse[0])
+        reponses.append(reponse[1])
+        reponses.append(reponse[2])
+        reponses.append(reponse[3])
+        
+def associerQuestions():
+    for question in r1:
+        questions.append(question[0])
+        
+def quizzDebut():
+    global numeroquestion
+    global points
+    while numeroquestion < 21:
+        hasard = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+        random.shuffle(hasard)
+        for i in hasard:
+            print(numeroquestion,":",questions[i-1])
+            if i == 1:
+                rep = [0, 1, 2, 3]
+                random.shuffle(rep)
+                print(reponses[rep[0]])
+                print(reponses[rep[1]])
+                print(reponses[rep[2]])
+                print(reponses[rep[3]])
+                choix = str(input('Choix:'))
+                if choix == reponses[0]:
+                    points=points+1
+                    quizzDebut()
+                if choix == "stop":
+                    finDuQuiz()
+            if i == 2:
+                rep = [4, 5, 6, 7]
+                random.shuffle(rep)
+                print(reponses[rep[0]])
+                print(reponses[rep[1]])
+                print(reponses[rep[2]])
+                print(reponses[rep[3]])
+                choix = str(input('Choix:'))
+                if choix == reponses[4]:
+                    points=points+1
+                if choix == "stop":
+                    finDuQuiz()
+            if i == 3:
+                rep = [8, 9, 10, 11]
+                random.shuffle(rep)
+                print(reponses[rep[0]])
+                print(reponses[rep[1]])
+                print(reponses[rep[2]])
+                print(reponses[rep[3]])
+                choix = str(input('Choix:'))
+                if choix == reponses[8]:
+                    points=points+1
+                if choix == "stop":
+                    finDuQuiz()
+            if i == 4:
+                rep = [12, 13, 14, 15]
+                random.shuffle(rep)
+                print(reponses[rep[0]])
+                print(reponses[rep[1]])
+                print(reponses[rep[2]])
+                print(reponses[rep[3]])
+                choix = str(input('Choix:'))
+                if choix == reponses[12]:
+                    points=points+1
+                if choix == "stop":
+                    finDuQuiz()
+            if i == 5:
+                rep = [16, 17, 18, 19]
+                random.shuffle(rep)
+                print(reponses[rep[0]])
+                print(reponses[rep[1]])
+                print(reponses[rep[2]])
+                print(reponses[rep[3]])
+                choix = str(input('Choix:'))
+                if choix == reponses[16]:
+                    points=points+1
+                if choix == "stop":
+                    finDuQuiz()
+            if i == 6:
+                rep = [20, 21, 22, 23]
+                random.shuffle(rep)
+                print(reponses[rep[0]])
+                print(reponses[rep[1]])
+                print(reponses[rep[2]])
+                print(reponses[rep[3]])
+                choix = str(input('Choix:'))
+                if choix == reponses[20]:
+                    points=points+1
+                if choix == "stop":
+                    finDuQuiz()
+            if i == 7:
+                rep = [24, 25, 26,27]
+                random.shuffle(rep)
+                print(reponses[rep[0]])
+                print(reponses[rep[1]])
+                print(reponses[rep[2]])
+                print(reponses[rep[3]])
+                choix = str(input('Choix:'))
+                if choix == reponses[24]:
+                    points=points+1
+                if choix == "stop":
+                    finDuQuiz()
+            if i == 8:
+                rep = [28, 29, 30, 31]
+                random.shuffle(rep)
+                print(reponses[rep[0]])
+                print(reponses[rep[1]])
+                print(reponses[rep[2]])
+                print(reponses[rep[3]])
+                choix = str(input('Choix:'))
+                if choix == reponses[28]:
+                    points=points+1
+                if choix == "stop":
+                    finDuQuiz()
+            if i == 9:
+                rep = [32, 33, 34, 35]
+                random.shuffle(rep)
+                print(reponses[rep[0]])
+                print(reponses[rep[1]])
+                print(reponses[rep[2]])
+                print(reponses[rep[3]])
+                choix = str(input('Choix:'))
+                if choix == reponses[32]:
+                    points=points+1
+                if choix == "stop":
+                    finDuQuiz()
+            if i == 10:
+                rep = [36, 37, 38, 39]
+                random.shuffle(rep)
+                print(reponses[rep[0]])
+                print(reponses[rep[1]])
+                print(reponses[rep[2]])
+                print(reponses[rep[3]])
+                choix = str(input('Choix:'))
+                if choix == reponses[36]:
+                    points=points+1
+                if choix == "stop":
+                    finDuQuiz()
+            if i == 11:
+                rep = [40, 41, 42, 43]
+                random.shuffle(rep)
+                print(reponses[rep[0]])
+                print(reponses[rep[1]])
+                print(reponses[rep[2]])
+                print(reponses[rep[3]])
+                choix = str(input('Choix:'))
+                if choix == reponses[40]:
+                    points=points+1
+                if choix == "stop":
+                    finDuQuiz()
+            if i == 12:
+                rep = [44, 45, 46, 47]
+                random.shuffle(rep)
+                print(reponses[rep[0]])
+                print(reponses[rep[1]])
+                print(reponses[rep[2]])
+                print(reponses[rep[3]])
+                choix = str(input('Choix:'))
+                if choix == reponses[44]:
+                    points=points+1
+                if choix == "stop":
+                    finDuQuiz()
+            if i == 13:
+                rep = [48, 49, 50, 51]
+                random.shuffle(rep)
+                print(reponses[rep[0]])
+                print(reponses[rep[1]])
+                print(reponses[rep[2]])
+                print(reponses[rep[3]])
+                choix = str(input('Choix:'))
+                if choix == reponses[48]:
+                    points=points+1
+                if choix == "stop":
+                    finDuQuiz()
+            if i == 14:
+                rep = [52, 53, 54, 55]
+                random.shuffle(rep)
+                print(reponses[rep[0]])
+                print(reponses[rep[1]])
+                print(reponses[rep[2]])
+                print(reponses[rep[3]])
+                choix = str(input('Choix:'))
+                if choix == reponses[52]:
+                    points=points+1
+                if choix == "stop":
+                    finDuQuiz()
+            if i == 15:
+                rep = [56, 57, 58, 59]
+                random.shuffle(rep)
+                print(reponses[rep[0]])
+                print(reponses[rep[1]])
+                print(reponses[rep[2]])
+                print(reponses[rep[3]])
+                choix = str(input('Choix:'))
+                if choix == reponses[56]:
+                    points=points+1
+                if choix == "stop":
+                    finDuQuiz()
+            if i == 16:
+                rep = [60, 61, 62, 63]
+                random.shuffle(rep)
+                print(reponses[rep[0]])
+                print(reponses[rep[1]])
+                print(reponses[rep[2]])
+                print(reponses[rep[3]])
+                choix = str(input('Choix:'))
+                if choix == reponses[60]:
+                    points=points+1
+                if choix == "stop":
+                    finDuQuiz()
+            if i == 17:
+                rep = [64, 65, 66, 67]
+                random.shuffle(rep)
+                print(reponses[rep[0]])
+                print(reponses[rep[1]])
+                print(reponses[rep[2]])
+                print(reponses[rep[3]])
+                choix = str(input('Choix:'))
+                if choix == reponses[64]:
+                    points=points+1
+                if choix == "stop":
+                    finDuQuiz()
+            if i == 18:
+                rep = [68, 69, 70, 71]
+                random.shuffle(rep)
+                print(reponses[rep[0]])
+                print(reponses[rep[1]])
+                print(reponses[rep[2]])
+                print(reponses[rep[3]])
+                choix = str(input('Choix:'))
+                if choix == reponses[68]:
+                    points=points+1
+                if choix == "stop":
+                    finDuQuiz()
+            if i == 19:
+                rep = [72, 73, 74, 75]
+                random.shuffle(rep)
+                print(reponses[rep[0]])
+                print(reponses[rep[1]])
+                print(reponses[rep[2]])
+                print(reponses[rep[3]])
+                choix = str(input('Choix:'))
+                if choix == reponses[72]:
+                    points=points+1
+                if choix == "stop":
+                    finDuQuiz()
+            if i == 20:
+                rep = [76, 77, 78, 79]
+                random.shuffle(rep)
+                print(reponses[rep[0]])
+                print(reponses[rep[1]])
+                print(reponses[rep[2]])
+                print(reponses[rep[3]])
+                choix = str(input('Choix:'))
+                if choix == reponses[76]:
+                    points=points+1
+                if choix == "stop":
+                    finDuQuiz()
+            numeroquestion = numeroquestion+1
+        quizzDebut()
+    finDuQuiz()
+
+def finDuQuiz():
+    print("Vous avez obtenu",points,"/ 20")
+    quit()
+
+quizz()

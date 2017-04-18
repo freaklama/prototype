@@ -14,7 +14,6 @@ r1 = csv.reader(f1)
 r2 = csv.reader(f2)
 questions = []
 reponses = []
-bonnerep = []
 numeroquestion = 1
 points = 0
 
